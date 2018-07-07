@@ -21,9 +21,19 @@ class Login extends Component {
       container,
     } = styles;
 
+    const {
+      navigation: {
+        state: {
+          params: {
+            name,
+          },
+        },
+      },
+    } = this.props;
+
     return (
       <View style={container}>
-        <Text>{'Login'}</Text>
+        <Text>{`Login ${name}`}</Text>
         <Button
           title={'Ir al about'}
           onPress={this.handlePress}
