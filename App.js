@@ -7,6 +7,9 @@
  */
 
 import React, {Component} from 'react';
+import {
+  Text,
+} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import Home from './src/screens/Home';
 import About from './src/screens/About';
@@ -28,12 +31,18 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'Login',
-    navigationOptions: {
-      title: 'Title',
-    },
     initialRouteKey: 'login',
     initialRouteParams: {
       name: 'Oscar Zambrano',
+    },
+    navigationOptions: {
+      title: 'Title',
+      headerTitleAllowFontScalling: true,
+      headerBackTitle: 'Atrás',
+      gesturesEnable: true,
+      // headerBackImage: <Text>😀</Text>
+      // header: <Text style={{ color: 'white' }}>{'Custom Header'}</Text>,
+      // header: null, // Remove Header component
     },
   },
 );
