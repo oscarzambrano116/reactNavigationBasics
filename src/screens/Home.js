@@ -5,15 +5,21 @@ import {
   Button,
   StyleSheet,
 } from 'react-native';
+import { StackActions } from 'react-navigation';
 
 class Home extends Component {
   handlePress = () => {
     const {
       navigation: {
-        navigate,
+        // navigate,
+        dispatch,
       },
     } = this.props;
-    navigate('Login');
+    // navigate('Login');
+    const { push } = StackActions;
+    dispatch(push({
+      routeName: 'Login',
+    }));
   }
 
   render() {
