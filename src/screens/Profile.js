@@ -5,6 +5,7 @@ import {
   Button,
   StyleSheet,
 } from 'react-native';
+import Name from '../profile/components/Name';
 
 class Profile extends Component {
   handlePress = () => {
@@ -45,6 +46,7 @@ class Profile extends Component {
           title={'Cambiar nombre'}
           onPress={this.setParams}
         />
+        <Name />
       </View>
     );
   }
