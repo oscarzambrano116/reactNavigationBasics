@@ -8,54 +8,68 @@
 
 import React, {Component} from 'react';
 import {
-  Platform,
-  StyleSheet,
   Text,
-  View,
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import Home from './src/screens/Home';
+import About from './src/screens/About';
+import Login from './src/screens/Login';
+import Profile from './src/screens/Profile';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
-class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+const AppNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: Home,
+      path: '/home',
+      navigationOptions: {
+        title: 'Home Screen',
+      },
+    },
+    About,
+    Login,
+    Profile,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  {
+    initialRouteName: 'Home',
+    initialRouteKey: 'home',
+    initialRouteParams: {
+      name: 'Oscar Zambrano',
+    },
+    navigationOptions: {
+      title: 'Title',
+      headerTitleAllowFontScalling: true,
+      headerBackTitle: 'Atrás',
+      gesturesEnable: true,
+      // headerBackImage: <Text>😀</Text>
+      // header: <Text style={{ color: 'white' }}>{'Custom Header'}</Text>,
+      // header: null, // Remove Header component
+    },
+    // headerTransitionPreset: 'uikit',
+    // headerTransitionPreset: 'fade-in-place',
+    // cardStyle: {
+    //   borderWidth: 2,
+    //   backgroundColor: 'black',
+    // },
+    // mode: 'modal',
+    // mode: 'card',
+    // headerMode: 'none',
+    // headerMode: 'screen',
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+);
+
+const Main = createStackNavigator(
+  {
+    Main: {
+      screen: AppNavigator,
+    },
+    Login: {
+      screen: Login,
+    },
   },
-});
+  {
+    mode: 'modal',
+    headerMode: 'none',
+  },
+);
 
-const AppNavigator = createStackNavigator({
-  Home: App,
-});
-
-export default AppNavigator;
+export default Main;
