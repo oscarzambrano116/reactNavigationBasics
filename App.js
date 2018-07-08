@@ -30,8 +30,8 @@ const AppNavigator = createStackNavigator(
     Profile,
   },
   {
-    initialRouteName: 'Login',
-    initialRouteKey: 'login',
+    initialRouteName: 'Home',
+    initialRouteKey: 'home',
     initialRouteParams: {
       name: 'Oscar Zambrano',
     },
@@ -57,4 +57,19 @@ const AppNavigator = createStackNavigator(
   },
 );
 
-export default AppNavigator;
+const Main = createStackNavigator(
+  {
+    Main: {
+      screen: AppNavigator,
+    },
+    Login: {
+      screen: Login,
+    },
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
+  },
+);
+
+export default Main;
