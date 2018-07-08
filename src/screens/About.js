@@ -13,7 +13,9 @@ class About extends Component {
         navigate,
       },
     } = this.props;
-    navigate('Profile');
+    navigate('Profile', {
+      name: 'Oscar Zambrano',
+    });
   }
 
   render() {

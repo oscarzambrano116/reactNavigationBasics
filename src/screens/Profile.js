@@ -16,6 +16,19 @@ class Profile extends Component {
     navigate('Home');
   }
 
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: `${navigation.getParam('name')} ${navigation.getParam('age', 27)}`,
+    };
+  }
+
+  setParams = () => {
+    const { navigation } = this.props;
+    navigation.setParams({
+      name: 'Other Oscar',
+    })
+  }
+
   render() {
     const {
       container,
@@ -27,6 +40,10 @@ class Profile extends Component {
         <Button
           title={'Ir al home'}
           onPress={this.handlePress}
+        />
+        <Button
+          title={'Cambiar nombre'}
+          onPress={this.setParams}
         />
       </View>
     );

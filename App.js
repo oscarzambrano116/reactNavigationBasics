@@ -44,7 +44,7 @@ const AppNavigator = createStackNavigator(
       // header: <Text style={{ color: 'white' }}>{'Custom Header'}</Text>,
       // header: null, // Remove Header component
     },
-    headerTransitionPreset: 'uikit',
+    // headerTransitionPreset: 'uikit',
     // headerTransitionPreset: 'fade-in-place',
     // cardStyle: {
     //   borderWidth: 2,
